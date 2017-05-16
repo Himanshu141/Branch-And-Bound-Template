@@ -1,0 +1,54 @@
+******Performance graph for MPI Implemenation***************
+
+MPI implementation is using Best First Search Branch and Bound. In Best first search only top node is taken out of the priority queue. But in Branch and Bound implementation best first search is done on subproblems that means the open nodes in the queue are for different subtrees rather than for the whole tree. 
+Therefore to increase the exploration of the tree a explorationDiameter variable is introduced which is the number of nodes that will be toped from the queue.
+
+0/1Knapsack:-
+//Atleast 2 processors are required (1 master and 1 slave) 
+ Number of bags || Number of Processors || Exploration Diameter || Time Taken || SpeedUP
+ 	100,534		    2			     3		     0.198	 //Wrong Answer in this case beacause one processor in not able explore the whole tree.
+   	100,534		    3			     3               0.638          1
+   	100,534		    4			     3               0.407          1.567
+   	
+   	100,534		    2			     6		     1.715	     1
+   	100,534		    3			     6               0.937          1.83
+   	100,534		    4			     6               0.471          3.64
+   	
+   	
+   	50,200		    2			     3		     0.191	 //Wrong Answer in this case beacause one processor in not able explore the whole tree.
+   	50,200		    3			     3               0.240          1
+   	50,200		    4			     3               0.227          1.057
+   	
+   	50,200		    2			     6		     0.540	   1         
+   	50,200		    3			     6               0.264         2.04
+   	50,200		    4			     6               0.221         2.44
+   	
+   	
+   	
+TSP Problem:-
+
+Number of Nodes || Number of Processors || Exploration Diameter || Time Taken || SpeedUP
+ 	8		    2			     3		     0.114	    1
+   	8		    3			     3               0.111         1.027 
+   	8		    4			     3               0.150      This is because the code is explring a lot of nodes          
+   	
+   	8		    2			     6		     0.105           1
+   	8		    3			     6               0.100         1.05    
+   	8		    4			     6               0.127      This is because the code is explring a lot of nodes
+   	
+   	
+   	10		    2			     3		     0.130	    1
+   	10		    3			     3               0.523          
+   	10		    4			     3               0.553      This is because the code is explring a lot of nodes          
+   	
+   	10		    2			     6		     0.114           1
+   	10		    3			     6               0.425            
+   	10		    4			     6               0.920     This is because the code is explring a lot of nodes
+   	
+***In TSP problem the heuristic is a lot better than in 0/1Knapsack, that's why the all cases in TSP render optimal results ***********
+
+
+
+
+   	
+   	
